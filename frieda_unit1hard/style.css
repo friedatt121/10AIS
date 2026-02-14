@@ -1,0 +1,239 @@
+@font-face {
+  font-family: "Cherry Pop";
+  src: local("Cherry Bomb One"), local("Comic Sans MS");
+}
+
+:root {
+  --bg1: #fef6f1;
+  --bg2: #f7e8ff;
+  --ink: #3a2f4c;
+  --accent: #ff8bb0;
+  --accent-2: #79d9c7;
+  --panel: #ffffffcc;
+  --shadow: #d7c5ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Cherry Pop", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 10%, var(--bg2), transparent 55%),
+    radial-gradient(circle at 90% 10%, #ffe6f1, transparent 55%),
+    linear-gradient(135deg, var(--bg1), #eaf7ff 60%);
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar,
+.bottombar {
+  display: flex;
+  gap: 14px;
+  padding: 14px 18px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, #fff, #fdf1fb 70%);
+}
+
+.topbar {
+  border-bottom: 3px solid #f0d6ff;
+}
+
+.bottombar {
+  border-top: 3px solid #f0d6ff;
+}
+
+.logo {
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 var(--shadow);
+  align-self: center;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 6px 0 var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.controls {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tiny {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+.bar {
+  height: 12px;
+  background: #ffe3f1;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#energyFill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), #ffb7d3);
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  flex: 1 1 auto;
+}
+
+.edit-toggle {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 5;
+  background: #fff3fb;
+  border: 2px solid #f0c6df;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-family: "Cherry Pop", "Trebuchet MS", sans-serif;
+  box-shadow: 0 4px 0 var(--shadow);
+  cursor: pointer;
+}
+
+.edit-toggle.hidden {
+  display: none;
+}
+
+.inventory-panel {
+  position: absolute;
+  top: 52px;
+  left: 20px;
+  z-index: 5;
+  width: 160px;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 2px solid #f0d6ff;
+  box-shadow: 0 6px 0 var(--shadow);
+  display: none;
+  max-height: 260px;
+  overflow: hidden;
+}
+
+.inventory-panel.show {
+  display: block;
+}
+
+.panel-title {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #6b5678;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.inventory-item {
+  background: #fdf4fb;
+  border: 2px solid #f1d4ea;
+  border-radius: 10px;
+  padding: 4px;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inventory-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.inventory-icon {
+  display: block;
+  margin: 0 auto 4px;
+  image-rendering: pixelated;
+  width: 48px;
+  height: 48px;
+}
+
+.inventory-name {
+  font-size: 11px;
+}
+
+.inventory-count {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+canvas {
+  border-radius: 20px;
+  box-shadow: 0 12px 0 #cdd6ff;
+  background: #cdefff;
+  image-rendering: pixelated;
+  width: 960px;
+  height: 540px;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  box-shadow: 0 5px 0 var(--shadow);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hint.show {
+  opacity: 1;
+}
+
+.dialogue {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .panel, .logo {
+    flex: 1 1 200px;
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kawaii Village RPG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="logo">Kawaii Village</div>
+      <div class="panel">
+        <div class="label">Time</div>
+        <div id="time">Day 1 • Morning</div>
+        <div id="season" class="tiny"></div>
+      </div>
+      <div class="panel">
+        <div class="label">Coins</div>
+        <div id="coins">0</div>
+      </div>
+      <div class="panel">
+        <div class="label">Energy</div>
+        <div class="bar"><div id="energyFill"></div></div>
+      </div>
+      <div class="panel">
+        <div class="label">Objective</div>
+        <div id="objective">Grow 6 crops for the village picnic.</div>
+      </div>
+    </header>
+    <main class="stage">
+      <button class="edit-toggle" id="editToggle" type="button">Edit House</button>
+      <div class="inventory-panel" id="inventoryPanel">
+        <div class="panel-title">Your Furniture</div>
+        <div class="inventory-grid" id="inventoryGrid"></div>
+        <div class="tiny">Drag items onto the floor. R rotates. X puts back.</div>
+      </div>
+      <canvas id="game" width="960" height="540"></canvas>
+      <div class="hint" id="hint"></div>
+      <div class="dialogue" id="dialogue"></div>
+    </main>
+    <section class="bottombar">
+      <div class="panel">
+        <div class="label">Crop Bag</div>
+        <div id="bag">0</div>
+      </div>
+      <div class="panel">
+        <div class="label">Controls</div>
+        <div class="controls">
+          <div>Move: WASD / Arrows</div>
+          <div>Interact: E (talk/doors/harvest/shop)</div>
+          <div>Plant: Q (when on tilled soil)</div>
+          <div>Water: W (when on planted crop)</div>
+          <div>Furniture: 1-3 select • F place • X pick up • R rotate</div>
+          <div>Shop: Left/Right select • Enter confirm • Esc exit</div>
+          <div>Shop Click: Use mouse to select options</div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="label">Seasons</div>
+        <div class="controls">
+          <div>Hemisphere: <span id="hemisphere">North</span></div>
+          <div>Change: H</div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="label">Furniture</div>
+        <div id="furniture"></div>
+        <div class="tiny">Buy at the village stall using coins.</div>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
