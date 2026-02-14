@@ -31,8 +31,6 @@ import {
   buildings
 } from "./data.js";
 
-// for test
-
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
