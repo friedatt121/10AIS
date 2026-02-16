@@ -1,0 +1,6 @@
+{
+  "appId": "com.friedatt.babushkavillage",
+  "appName": "Babushka Village",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
